@@ -10,9 +10,7 @@
 <script>
 
 function readFile(imgs) { 
-
   if (imgs.files && imgs.files[0]) { 
-    var FR= new FileReader();
     const formData = new FormData();
     formData.append('file', imgs.files[0]);
     fetch('https://bookbnb-firebase-test.herokuapp.com/upload_image', {
