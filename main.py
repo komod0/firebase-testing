@@ -1,8 +1,7 @@
-import requests
+import json
 import os
-from fastapi import FastAPI, File, UploadFile, Request
-from pydantic import BaseModel
 
+from fastapi import FastAPI, File, UploadFile
 from firebase_admin import credentials, initialize_app, storage
 
 app = FastAPI()
@@ -15,9 +14,10 @@ storage_bucket = os.environ.get("FIREBASE-STORAGE-BUCKET")
 cred = credentials.Certificate(client_secret)
 initialize_app(cred, {'storageBucket': storage_bucket})
 
+
 @app.post("/upload_image")
 async def root(file: UploadFile = File(...)):
-    # Put your local file path 
+    # Put your local file path
     file_name = file.filename
     bucket = storage.bucket()
     blob = bucket.blob(file_name)
@@ -26,5 +26,3 @@ async def root(file: UploadFile = File(...)):
     # Opt : if you want to make public access from the URL
     blob.make_public()
     print("your file url", blob.public_url)
-
-

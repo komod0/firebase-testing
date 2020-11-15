@@ -15,7 +15,7 @@ function readFile(imgs) {
     var FR= new FileReader();
     const formData = new FormData();
     formData.append('file', imgs.files[0]);
-    fetch('http://localhost:8000/upload_image', {
+    fetch('https://bookbnb-firebase-test.herokuapp.com/upload_image', {
     method: 'POST',
       body: formData})
   }

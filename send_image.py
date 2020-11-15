@@ -1,5 +1,5 @@
 import requests
 
-file_path = "/home/julianc/Wallpapers/ethan-brooke-M2VtwQSkQFs-unsplash.jpg"
+file_path = "/home/julianc/Wallpapers/karsten-wurth-7BjhtdogU3A-unsplash.jpg"
 files = {"file": open(file_path, "rb")}
-response = requests.post("http://localhost:8000/upload_image", files=files)
+response = requests.post("https://bookbnb-firebase-test.herokuapp.com/upload_image", files=files)
