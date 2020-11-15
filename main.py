@@ -6,7 +6,7 @@ from firebase_admin import credentials, initialize_app, storage
 
 app = FastAPI()
 
-client_secret_raw = os.environ.get("FIREBASE-JSON-CERT")
+client_secret_raw = os.environ["FIREBASE-JSON-CERT"]
 print(fr"{client_secret_raw}")
 client_secret = json.loads(client_secret_raw)
 storage_bucket = os.environ.get("FIREBASE-STORAGE-BUCKET")
